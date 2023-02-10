@@ -5,9 +5,6 @@ import {
   Section,
   Notification,
 } from 'components/Feedback';
-// import Statistics from './Feedback/Statistics';
-// import Section from './Feedback/Section';
-// import Notification from './Feedback/Notification';
 
 export class App extends Component {
   state = {
