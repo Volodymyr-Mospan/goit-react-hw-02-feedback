@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 
 export default class Feedback extends Component {
   state = {
-    good: 1,
-    neutral: 2,
-    bad: 30,
+    good: 0,
+    neutral: 0,
+    bad: 0,
   };
 
   addFeedbackStatus = e => {
-    const targetName = e.target.name;
-    console.log(this.state[targetName]);
-    //   this.setState(() => {
-    //       this.state[targetName];
-    //   })
+    const { state } = this;
+    const feedbackStatus = e.target.name;
+
+    this.setState(() => ({
+      [feedbackStatus]: state[feedbackStatus] + 1,
+    }));
   };
 
   render() {
@@ -28,6 +29,7 @@ export default class Feedback extends Component {
           >
             Good
           </button>
+
           <button
             type="button"
             name="neutral"
@@ -35,6 +37,7 @@ export default class Feedback extends Component {
           >
             Neutral
           </button>
+
           <button
             type="button"
             name="bad"
@@ -48,7 +51,7 @@ export default class Feedback extends Component {
 
         <p>Good: {this.state.good}</p>
         <p>Neutral: {this.state.neutral}</p>
-        <p>Bad: {this.state.bab}</p>
+        <p>Bad: {this.state.bad}</p>
       </>
     );
   }
