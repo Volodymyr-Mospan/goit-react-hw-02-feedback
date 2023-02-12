@@ -1,17 +1,14 @@
 import React from 'react';
+import { nanoid } from 'nanoid';
 
-export const Statistics = ({
-  good,
-  neutral,
-  bad,
-  total,
-  positivePercentage,
-}) => {
+export const Statistics = ({ feedbackTypes, total, positivePercentage }) => {
   return (
     <>
-      <p>Good: {good}</p>
-      <p>Neutral: {neutral}</p>
-      <p>Bad: {bad}</p>
+      {Object.entries(feedbackTypes).map(feedbackType => (
+        <p key={nanoid()}>
+          {feedbackType[0]}: {feedbackType[1]}
+        </p>
+      ))}
       <p>Total: {total}</p>
       <p>Positive feesdback: {`${positivePercentage}%`}</p>
     </>
