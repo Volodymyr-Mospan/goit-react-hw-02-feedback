@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
 import scss from 'components/Feedback/Feedback.module.scss';
 
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
@@ -7,7 +9,7 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
       {options.map(option => (
         <button
           className={scss.btn}
-          key={option}
+          key={nanoid(10)}
           type="button"
           name={option}
           onClick={e => onLeaveFeedback(e)}
@@ -18,4 +20,9 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
       ))}
     </div>
   );
+};
+
+FeedbackOptions.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
 };
