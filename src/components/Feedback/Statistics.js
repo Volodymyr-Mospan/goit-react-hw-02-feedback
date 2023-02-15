@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
-import scss from 'components/Feedback/Feedback.module.scss';
+// import scss from 'components/Feedback/Feedback.module.scss';
 
 export const Statistics = ({ feedbackTypes, total, positivePercentage }) => {
   return (
-    <div className={scss.section__statistics}>
+    <>
       {Object.entries(feedbackTypes).map(feedbackType => (
         <p key={nanoid()}>
           {feedbackType[0]}: {feedbackType[1]}
@@ -20,7 +20,7 @@ export const Statistics = ({ feedbackTypes, total, positivePercentage }) => {
       >
         Positive feesdback: {`${positivePercentage}%`}
       </p>
-    </div>
+    </>
   );
 };
 

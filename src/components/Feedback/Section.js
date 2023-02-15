@@ -1,16 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import scss from 'components/Feedback/Feedback.module.scss';
+import {
+  SectionStyled,
+  SectionTitleStyled,
+} from 'components/Feedback/Feedback.styled';
 
-export const Section = ({ title, children }) => {
+// import scss from 'components/Feedback/Feedback.module.scss';
+
+export const Section = ({ title, moreStyles, children }) => {
   return (
-    <section className={scss.section}>
-      <h2 className={scss.section__title}>{title}</h2>
+    <SectionStyled moreStyles={moreStyles}>
+      <SectionTitleStyled>{title}</SectionTitleStyled>
       {children}
-    </section>
+    </SectionStyled>
   );
 };
 
 Section.propTypes = {
   title: PropTypes.string.isRequired,
+  moreStyles: PropTypes.string,
 };

@@ -9,7 +9,7 @@ import {
 export class App extends Component {
   state = {
     good: 0,
-    neutral: 0,
+    neutural: 0,
     bad: 0,
   };
 
@@ -54,7 +54,7 @@ export class App extends Component {
           />
         </Section>
 
-        <Section title={'Statistics'}>
+        <Section moreStyles={'__statistics'} title={'Statistics'}>
           {total ? (
             <Statistics
               feedbackTypes={this.state}
